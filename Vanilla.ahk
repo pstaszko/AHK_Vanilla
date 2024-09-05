@@ -1,5 +1,6 @@
 #Include %A_ScriptDir%\ahkpm-modules\github.com\pstaszko\AHK_PSKill\PSKill.ahk
 #Include %A_ScriptDir%\ahkpm-modules\github.com\pstaszko\AHK-Notification\Growl.ahk
+#include %a_scriptdir%\ahkpm-modules\github.com\pstaszko\AHK_Diagnostics\Vanilla_Diagnostics.ahk
 #if
 Standard_SendInput(txt){
 	SendInput %txt%
