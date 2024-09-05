@@ -23,7 +23,7 @@
     {
       "name": "github.com/pstaszko/AHK_Vanilla_FileSystem",
       "version": "branch:main",
-      "sha": "25ba6aa85aeae5bef9de78f602f779bd6ad4c3da",
+      "sha": "547fb3f9967795f1c76c62b8682da98715a5d400",
       "installPath": "ahkpm-modules/github.com/pstaszko/AHK_Vanilla_FileSystem",
       "dependencies": {}
     }
