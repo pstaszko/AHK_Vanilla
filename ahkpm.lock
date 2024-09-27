@@ -16,7 +16,7 @@
     {
       "name": "github.com/pstaszko/AHK_StringManipulation",
       "version": "branch:main",
-      "sha": "1c680afa6a0dbc445b31764d52c504ba37cfac11",
+      "sha": "6c2bd1971ffb92b8656130256e1ead5fa460b646",
       "installPath": "ahkpm-modules/github.com/pstaszko/AHK_StringManipulation",
       "dependencies": {}
     },
