@@ -314,7 +314,6 @@ RunFailover(cmd,NoMax:=0,AllowRetry:=1){
 	{
 		Loop %cmd%
 			x:=A_LoopFileDir
-		;x.shout
 		Run %cmd%,%x%,UseErrorLevel
 		If Errorlevel
 		{
@@ -435,7 +434,6 @@ RunOrSwitch(cmdLine, ROStitle,NoMax:=0,Class:="",Group:="",ForceSingleMonitor:=0
 GetURLofExplorerWindow(){
 	WinGetText txt,A
 	RegExMatch(txt,"O)Address: (.*)", Match)
-	;Match.Count.shout
 	Return % Match.Value(1)
 }
 MySplitPath(InputVar,Byref OutFileName="",Byref OutDir="",Byref OutExtension="",Byref OutNameNoExt="",Byref OutDrive="",ByRef OutFolderName=""){
