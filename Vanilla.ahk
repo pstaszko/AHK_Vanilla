@@ -317,7 +317,7 @@ RunFailover(cmd,NoMax:=0,AllowRetry:=1){
 		Run %cmd%,%x%,UseErrorLevel
 		If Errorlevel
 		{
-			if (cmd.startswith("w:") and AllowRetry)
+			if (StartsWith(cmd,"w:") and AllowRetry)
 			{
 				run w:
 				sleep 100
@@ -585,7 +585,7 @@ SParams(args*){
 	return % Join(", ",args*)
 }
 GParams(args*){
-	Join(", ",args*).g
+	g(Join(", ",args*))
 }
 _log(context,msg,synchronous=0,IncludePath=1){
 	global Log4Net
@@ -706,7 +706,7 @@ SetActiveTitle(strTitle){
 }
 StripFromActiveTitle(strStrip){
 	WinGetActiveTitle activeTitle
-	activeTitle.Strip(strStrip)
+	Strip(activeTitle,strStrip)
 	SetActiveTitle(activeTitle)
 }
 ToggleZoom(){
@@ -1570,7 +1570,7 @@ DiffMerge_SavePathToFile(){
 DiffMerge_ClipGitAdds(){
 	global GitAdds
 	FileRead x,C:\temp\DiffMergeHits.txt
-	x:=x.trim()
+	x:=MyTrim(x)
 	clipboard=gitoff`r`n%x%`r`ngiton`r`n
 	t("Clipped GitAdds")
 }
@@ -1719,7 +1719,7 @@ OpenMainScript(OpenOrSwitchAHK){
 			{
 				Match=1
 			}
-			if a_loopfilename.contains("bin.")
+			if Contains("bin.",a_loopfilename)
 			{
 				match=0
 			}
