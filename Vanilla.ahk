@@ -309,6 +309,9 @@ WinHideActive(){
 	WinMinimize A
 }
 #if
+AHK_Vanilla_StartsWith(str, prefix) {
+    return (SubStr(str, 1, StrLen(prefix)) ~= "i)^" . prefix)
+}
 RunFailover(cmd,NoMax:=0,AllowRetry:=1){
 	If NoMax
 	{
@@ -317,7 +320,7 @@ RunFailover(cmd,NoMax:=0,AllowRetry:=1){
 		Run %cmd%,%x%,UseErrorLevel
 		If Errorlevel
 		{
-			if (StartsWith(cmd,"w:") and AllowRetry)
+			if (AHK_Vanilla_StartsWith(cmd,"w:") and AllowRetry)
 			{
 				run w:
 				sleep 100
