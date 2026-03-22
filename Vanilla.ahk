@@ -312,6 +312,15 @@ WinHideActive(){
 AHK_Vanilla_StartsWith(str, prefix) {
     return (SubStr(str, 1, StrLen(prefix)) ~= "i)^" . prefix)
 }
+AHK_Vanilla_Strip(this, removeThis){
+	if (removeThis = "")
+		return this
+	startingStringCaseSense:=A_StringCaseSense
+	StringCaseSense Off
+	StringReplace thisx,this,%removeThis%,,1
+	StringCaseSense %startingStringCaseSense%
+	return thisx
+}
 RunFailover(cmd,NoMax:=0,AllowRetry:=1){
 	If NoMax
 	{
@@ -709,7 +718,7 @@ SetActiveTitle(strTitle){
 }
 StripFromActiveTitle(strStrip){
 	WinGetActiveTitle activeTitle
-	Strip(activeTitle,strStrip)
+	activeTitle:=AHK_Vanilla_Strip(activeTitle,strStrip)
 	SetActiveTitle(activeTitle)
 }
 ToggleZoom(){
