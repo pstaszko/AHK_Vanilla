@@ -1,6 +1,4 @@
-#Include %A_ScriptDir%\ahkpm-modules\github.com\pstaszko\AHK_PSKill\PSKill.ahk
 #Include %A_ScriptDir%\ahkpm-modules\github.com\pstaszko\AHK-Notification\Growl.ahk
-#include %a_scriptdir%\ahkpm-modules\github.com\pstaszko\AHK_Diagnostics\Vanilla_Diagnostics.ahk
 #if
 Standard_SendInput(txt){
 	SendInput %txt%
@@ -374,8 +372,8 @@ RunOrSwitch(cmdLine, ROStitle,NoMax:=0,Class:="",Group:="",ForceSingleMonitor:=0
 	global RunOrSwitch_Recursion_Level
 	;msgbox hi1
 	WinClose Search ahk_class Windows.UI.Core.CoreWindow ahk_exe SearchHost.exe
-	logParams()
-	logHere("Recursion level: " RunOrSwitch_Recursion_Level)
+	;logParams()
+	;logHere("Recursion level: " RunOrSwitch_Recursion_Level)
 	ROSCount+=1
 	ThisROSCount:=ROSCount
 	RunOrSwitch_Recursion_Level+=1
@@ -544,7 +542,7 @@ tDebug(msg,delay=-1){
 		d:=tDebugDelay
 	if tDebugOn
 	{
-		logHere(msg)
+		;logHere(msg)
 		if ShoutDebug
 			shout(msg)
 		else
@@ -1330,16 +1328,11 @@ Hide(){
 	WinHideActive()
 }
 Bailing(){
-	logHere(GetCallStack)
+	;logHere(GetCallStack)
 	t("Bailing func")
 }
 CheckIfFileExists(pathToCheck,quiet=1){
 	hit:=FileExist(pathToCheck)
-	if !quiet
-		if hit
-			logHere(a_thisfunc,"Exists:     " pathToCheck)
-		else
-			logHere(a_thisfunc,"Not Exists: " pathToCheck)
 	return % hit
 }
 FirstValidPath(pathsArray*){
