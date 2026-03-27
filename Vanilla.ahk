@@ -798,12 +798,14 @@ ToggleAlwaysOnTop(){
 		return 0
 	}
 }
-ClickAndReturn(x,y,cnt=1,mode="ul",TitleX="",shift=false){
+ClickAndReturn(x,y,cnt=1,mode="ul",TitleX="",shift=false,diagnose=false){
 	SetDefaultMouseSpeed 0
 	SetTitleMatchMode 2
 	CoordMode Mouse,Screen
 	MouseGetPos xx1, yy1
 	CoordMode Mouse,Relative
+	if diagnose then
+		growl("x: " . x . ", y: . " y . ", mode: " mode)
 	if shift
 		SendInput {shift down}
 	if mode=lr
