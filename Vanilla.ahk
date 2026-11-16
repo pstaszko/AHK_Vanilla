@@ -459,70 +459,12 @@ Esc(x=1){
 	SendInput {esc %x%}
 }
 Enter(x=1){
-	t("Enter")
 	SendInput {enter %x%}
 }
 GetReleasedEXE(name, additional=""){
 	x=C:\Dev\Releases\%name%\Stable\%name%.exe %additional%
 	return % x
 }
-/*
-class WS_MQTT extends WebSocket
-{
-	Bonk(){
-		return "bonked"
-	}
-	TrySend(Message){
-		;t(message " - " this.readyState)
-		;t(a " - " this.readyState)
-		if this.readyState
-		{
-			try {
-				;t(message)
-				this.Send(Message)
-			}
-		}
-	}
-
-	OnOpen(Event){
-		this.Closed := false
-	}
-
-	OnMessage(Event){
-		;RunMySendMessageLabel(Event.data)
-		MsgBox, % "Received Data: " Event.data
-		this.Close()
-	}
-
-	OnClose(Event){
-		this.Closed := true
-		this.Disconnect()
-	}
-
-	OnError(Event){
-		MsgBox Websocket Error %A_ScriptFullPath% %event%
-	}
-
-	__Delete(){
-		;t("__Delete Fired")
-	}
-}
-*/
-/*
-MqttPub(topic, message, host="localhost"){
-	global mqtt
-	;fileappend MQTTPUB %A_ScriptFullPath% - pub - %topic% / %message%`r`n, c:\temp\mqtt.txt
-	static mqtt_history := {}
-	z:=mqtt_history[topic]
-	if(z <> message)
-	{
-		;mqtt.TrySend(topic "|||" message)
-
-		run mosquitto_pub.exe -r -h %host% -t "%topic%" -m "%message%", , hide
-		mqtt_history[topic]:=message
-	}
-}
-*/
 shout(this,title=""){
 	_shout(this,title)
 }
@@ -532,7 +474,6 @@ _shout(this,title=""){
 			msgbox % title ": " this
 		else
 			msgbox % this
-	;AlertCallStack()
 }
 tDebug(msg,delay=-1){
 	global
