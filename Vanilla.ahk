@@ -638,9 +638,6 @@ GetModifiers(){
 		x .= ",Control"
 	return x
 }
-ConvertCricketPathToDevPath(path){
-	return % RegExReplace(path,"i)^c:\\inetpub\\Intranet(test)?","C:\dev\WesternCap\Cricket.Intranet")
-}
 ChangeOffset(delta){
 	global
 	mOffset+=delta
